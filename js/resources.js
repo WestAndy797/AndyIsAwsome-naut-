@@ -5,7 +5,7 @@ game.resources = [
 
     {name: "Test Map", type: "tmx", src: "data/map/TestMap.tmx"},
     //Loads Map
-    {name: "player", type: "image", src: "data/img/orcSpear.png"},
+    {name: "player", type: "image", src: "data/img/orcSpear.png"}
     //Loads Characters
 
 ];

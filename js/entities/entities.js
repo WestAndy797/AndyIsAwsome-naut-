@@ -11,16 +11,27 @@ game.PlayerEntity = me.Entity.extend({
                 }
 
             }]);
-        this.body.setVelocity(5, 0);
+        this.body.setVelocity(5, 20);
         //sets the key to move right
     },
     update: function(delta) {
-        if (me.imput.isKeyPressed("right")) {
+        if (me.input.isKeyPressed("right")) {
             this.body.vel.x += this.body.accel.x * me.timer.tick;
             //allows player to move right
         } else {
             this.body.vel.x = 0;
 
+        }
+        
+        if (me.input.isKeyPressed("left")) {
+            this.body.vel.x -= this.body.accel.x * me.timer.tick;
+        }
+        if (me.input.isKeyPressed("jump")) {
+
+            if (!this.body.jumping) {
+                this.body.vel.y = -this.body.accel.y * me.timer.tick;
+                
+            }
         }
         this.body.update(delta);
         return true;
