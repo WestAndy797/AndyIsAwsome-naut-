@@ -4,6 +4,7 @@ game.resources = [
     //Loads Tiles That Are Used In The Maps
 
     {name: "Test Map", type: "tmx", src: "data/map/TestMap.tmx"},
+    {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     //Loads Map
     {name: "player", type: "image", src: "data/img/orcSpear.png"}
     //Loads Characters
