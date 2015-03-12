@@ -16,6 +16,7 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
 
+        this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
         this.renderable.setCurrentAnimation("idle");
     },
     update: function(delta) {
@@ -23,11 +24,21 @@ game.PlayerEntity = me.Entity.extend({
             this.body.vel.x += this.body.accel.x * me.timer.tick;
 
             //allows player to move right
-        } else {
+        } else if (me.input.isKeyPressed("left")) {
+            this.body.vel.x -= this.body.accel.x * me.timer.tick;
+        }else {
             this.body.vel.x = 0;
             this.flipX(true);
         }
-        if (this.body.vel.x !== 0) {
+        
+        if (me.input.isKeyPressed("attack")){
+          if (!this.renderable.isCurrentAnimation("attack")){
+              //sets the current animation to attack and once its done it goes to idle
+              this.renderable.setCurrentAnimation("attack", "idle");
+              this.renderable.setAnimationFrame();
+          } 
+        }
+        else if (this.body.vel.x !== 0) {
             if (!this.renderable.isCurrentAnimation("walk")) {
                 this.renderable.setCurrentAnimation("walk");
             }
@@ -36,9 +47,7 @@ game.PlayerEntity = me.Entity.extend({
         }
         
 
-        if (me.input.isKeyPressed("left")) {
-            this.body.vel.x -= this.body.accel.x * me.timer.tick;
-        }
+        
         if (me.input.isKeyPressed("jump")) {
 
             if (!this.body.jumping) {
@@ -46,6 +55,7 @@ game.PlayerEntity = me.Entity.extend({
 
             }
         }
+        
         this.body.update(delta);
 
         this._super(me.Entity, "update", [delta]);
