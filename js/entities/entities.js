@@ -75,7 +75,7 @@ game.PlayerEntity = me.Entity.extend({
             me.input.bindKey(me.input.KEY.CTRL, "cheat");
 
         }
-        me.collision.check(this, true, this.collideHandler.bind(this, true));
+        me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
 
         this._super(me.Entity, "update", [delta]);
@@ -83,15 +83,17 @@ game.PlayerEntity = me.Entity.extend({
     },
     collideHandler: function(response){
         if(response.b.type==='EnemyBaseEntity'){
-            var ydif = this.ps.y - response.b.pos.y;
-            var xdif = this.ps.x - response.b.pos.x;
+            var ydif = this.pos.y - response.b.pos.y;
+            var xdif = this.pos.x - response.b.pos.x;
             
             console.log("xdif" + xdif + "ydif" + ydif);
             
-           /* if(){
+            if(xdif>-35 && this.facing==='right'){
                 this.body.vel.x = 0;
                 this.pos.x = this.pos.x - 1;
-            }*/
+            }else if(xdif<57 && this.facing==='left')
+                this.body.vel.x = 0;
+                this.pos.x = this.pos.x + 1;
         }
     }
 });
