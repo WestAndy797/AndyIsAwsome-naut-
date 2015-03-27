@@ -16,6 +16,12 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.W, "jump");
         me.input.bindKey(me.input.KEY.E, "attack");
         me.input.bindKey(me.input.KEY.SHIFT, "cheat");
+        me.input.bindKey(me.input.KEY.R, "kamehameha");
+        me.input.bindKey(me.input.KEY.I, "ssj1-instantkamehameha");
+        me.input.bindKey(me.input.KEY.O, "ssj2-angrykamehameha");
+        me.input.bindKey(me.input.KEY.P, "ssj3-dragonfist");
+        me.input.bindKey(me.input.KEY.L, "chargeki");
+        me.input.bindKey(me.input.KEY.K, "instanttransmition");
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);
