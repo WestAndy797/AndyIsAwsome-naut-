@@ -8,8 +8,8 @@ game.resources = [
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "title-screen", type: "image", src: "data/img/title.png.jpg"},
     //Loads Map
-    {name: "player", type: "image", src: "data/img/goku3.png"},
-    //{name: "player", type: "image", src: "data/img/orcSpear.png"}
+    //{name: "player", type: "image", src: "data/img/goku3.png"}
+    {name: "player", type: "image", src: "data/img/orcSpear.png"}
     //Loads Characters
 
 ];

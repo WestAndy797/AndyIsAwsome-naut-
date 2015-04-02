@@ -10,7 +10,7 @@ game.PlayScreen = me.ScreenObject.extend({
         //Loads level into the game
         var player = me.pool.pull("player", 0, 300, {});
         me.game.world.addChild(player, 5);
-        //adds plaayers into the world
+        //adds player into the world
         me.input.bindKey(me.input.KEY.D, "right");
         me.input.bindKey(me.input.KEY.A, "left");
         me.input.bindKey(me.input.KEY.W, "jump");
@@ -22,6 +22,8 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.P, "ssj3-dragonfist");
         me.input.bindKey(me.input.KEY.L, "chargeki");
         me.input.bindKey(me.input.KEY.K, "instanttransmition");
+        me.input.bindKey(me.input.KEY.M, "map");
+        me.input.bindKey(me.input.KEY.N, "upgrademenu");
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
         me.game.world.addChild(this.HUD);

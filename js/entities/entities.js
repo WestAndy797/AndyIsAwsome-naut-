@@ -7,17 +7,17 @@ game.PlayerEntity = me.Entity.extend({
                 spritewidth: "64",
                 spriteheight: "64",
                 getShape: function() {
-                    return(new me.Rect(0, 0, 64, 32)).toPolygon();
+                    return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
 
             }]);
         this.body.setVelocity(5, 20);
         this.facing = "right";
 
-        this.renderable.addAnimation("idle", [14]);
-        this.renderable.addAnimation("walk", [31]);
+        this.renderable.addAnimation("idle", [78]);
+        this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
 
-        this.renderable.addAnimation("attack", [60, 61, 62, 63, 64], 100);
+        this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
         this.renderable.setCurrentAnimation("idle");
     },
     update: function(delta) {
@@ -79,6 +79,11 @@ game.PlayerEntity = me.Entity.extend({
             
             if (code === "KaioKen") {
                 confirm("You Have Doubled Your Damage");
+
+            }
+            
+            if (code === "Senzu Bean") {
+                confirm("You Have Restored All Your Health");
 
             }
             
